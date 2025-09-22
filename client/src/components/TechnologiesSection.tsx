@@ -10,17 +10,19 @@ interface TechnologyCardProps {
 
 function TechnologyCard({ name, icon, color, bgColor }: TechnologyCardProps) {
   return (
-    <Card className="hover:shadow-lg transition-all duration-300 group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
-      <CardContent className="p-8 text-center space-y-4">
-        <div 
+    <Card className="group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
+      <div className="h-2 rounded-t-2xl" style={{ backgroundColor: color }} />
+      <CardContent className="p-6 text-center space-y-4">
+        <div
           className="w-20 h-20 mx-auto rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
           style={{ backgroundColor: bgColor }}
         >
           <span className="text-4xl">{icon}</span>
         </div>
         <div>
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{name}</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">{name}</h3>
         </div>
+        <div className="text-sm text-gray-400">▾</div>
       </CardContent>
     </Card>
   );
@@ -52,10 +54,13 @@ export default function TechnologiesSection() {
     <section className="py-16 md:py-24 bg-white dark:bg-gray-900" id="technologies">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Technologies
-          </h2>
-          <div className="w-20 h-1 bg-blue-600 rounded-full mx-auto mb-6"></div>
+          <div className="flex items-center justify-center gap-4 mb-3">
+            <div className="h-px w-20 bg-neutral-300" />
+            <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white">
+              Technologies
+            </h2>
+            <div className="h-px w-20 bg-neutral-300" />
+          </div>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Domains That Excite Us to Collaborate and Teach!
           </p>

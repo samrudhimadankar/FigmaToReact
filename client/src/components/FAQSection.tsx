@@ -12,13 +12,13 @@ interface FAQItemProps {
 
 function FAQItem({ question, answer, isOpen, onToggle, color = "#3b82f6" }: FAQItemProps) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300">
+    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300">
       <button
         onClick={onToggle}
-        className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-lg transition-colors"
+        className="w-full px-4 py-3 md:px-6 md:py-4 text-left flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-2xl transition-colors"
         data-testid={`faq-question-${question.toLowerCase().replace(/\s+/g, '-')}`}
       >
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white pr-4">{question}</h3>
+        <h3 className="text-sm md:text-base font-medium text-gray-900 dark:text-white pr-4">{question}</h3>
         {isOpen ? (
           <ChevronUp className="h-5 w-5 text-gray-500 dark:text-gray-400 flex-shrink-0" />
         ) : (
@@ -33,9 +33,9 @@ function FAQItem({ question, answer, isOpen, onToggle, color = "#3b82f6" }: FAQI
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
           >
-            <div className="px-6 pb-6">
-              <div className="pl-4 border-l-4" style={{ borderColor: color }}>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{answer}</p>
+            <div className="px-4 pb-4 md:px-6 md:pb-6">
+              <div className="pl-4 md:pl-5 border-l-4 rounded-bl-xl" style={{ borderColor: color }}>
+                <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed">{answer}</p>
               </div>
             </div>
           </motion.div>
@@ -89,10 +89,12 @@ export default function FAQSection() {
   return (
     <section className="py-16 md:py-24 bg-gray-50 dark:bg-gray-800" id="faq">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-            FAQs
-          </h2>
+        <motion.div className="text-center mb-10 md:mb-16" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <div className="h-px w-8 md:w-16 bg-neutral-300" />
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white">FAQs</h2>
+            <div className="h-px w-8 md:w-16 bg-neutral-300" />
+          </div>
         </motion.div>
 
         <div className="max-w-3xl mx-auto space-y-4">

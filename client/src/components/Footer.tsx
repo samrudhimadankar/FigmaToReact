@@ -89,20 +89,21 @@ export default function Footer() {
 
         {/* Decorative Bottom Section */}
         <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
-          <motion.div className="bg-gradient-to-r from-blue-50 via-green-50 to-yellow-50 dark:from-blue-900/20 dark:via-green-900/20 dark:to-yellow-900/20 rounded-3xl p-8" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div className="w-16 h-16 bg-red-500 rounded-3xl flex items-center justify-center">
-                <span className="text-3xl">🍉</span>
-              </div>
-              <div className="w-16 h-16 bg-blue-500 rounded-3xl flex items-center justify-center">
-                <span className="text-3xl">🔵</span>
-              </div>
-              <div className="w-16 h-16 bg-green-500 rounded-3xl flex items-center justify-center">
-                <span className="text-3xl">🟢</span>
-              </div>
-              <div className="w-16 h-16 bg-yellow-500 rounded-3xl flex items-center justify-center">
-                <span className="text-3xl">🟡</span>
-              </div>
+          <motion.div className="relative rounded-3xl overflow-hidden p-6 bg-white dark:bg-gray-900" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <div className="absolute inset-x-0 -bottom-6 h-20">
+              <div className="absolute left-6 bottom-0 w-24 h-6 rounded-full" style={{ backgroundColor: '#EA4335' }}></div>
+              <div className="absolute left-32 bottom-2 w-28 h-6 rounded-full" style={{ backgroundColor: '#4285F4' }}></div>
+              <div className="absolute left-60 bottom-1 w-20 h-6 rounded-full" style={{ backgroundColor: '#34A853' }}></div>
+              <div className="absolute left-80 bottom-3 w-24 h-6 rounded-full" style={{ backgroundColor: '#FBBC05' }}></div>
+              <div className="absolute right-10 bottom-1 w-24 h-6 rounded-full" style={{ backgroundColor: '#EA4335' }}></div>
+              <div className="absolute right-36 bottom-2 w-28 h-6 rounded-full" style={{ backgroundColor: '#4285F4' }}></div>
+              <div className="absolute right-56 bottom-0 w-16 h-6 rounded-full" style={{ backgroundColor: '#34A853' }}></div>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 opacity-0 pointer-events-none select-none" aria-hidden="true">
+              <div className="w-16 h-16 bg-red-500 rounded-3xl" />
+              <div className="w-16 h-16 bg-blue-500 rounded-3xl" />
+              <div className="w-16 h-16 bg-green-500 rounded-3xl" />
+              <div className="w-16 h-16 bg-yellow-500 rounded-3xl" />
             </div>
           </motion.div>
         </div>

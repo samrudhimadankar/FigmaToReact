@@ -22,7 +22,7 @@ export default function Header() {
   return (
     <header className="w-full bg-white dark:bg-gray-900 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-14 md:h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3" data-testid="logo">
             <div className="flex items-center space-x-2">
@@ -34,17 +34,17 @@ export default function Header() {
                   <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
                 </svg>
               </div>
-              <span className="text-xl font-medium text-gray-900 dark:text-white">DSC RCOEM</span>
+              <span className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">GDG On Campus</span>
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navigation.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors font-medium"
+                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
                 data-testid={`link-${item.name.toLowerCase()}`}
               >
                 {item.name}
@@ -53,10 +53,10 @@ export default function Header() {
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-3">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="px-3 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-xs"
               data-testid="button-theme-toggle"
             >
               {theme === "light" ? (
