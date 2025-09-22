@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface FAQItemProps {
   question: string;
@@ -24,14 +25,22 @@ function FAQItem({ question, answer, isOpen, onToggle, color = "#3b82f6" }: FAQI
           <ChevronDown className="h-5 w-5 text-gray-500 dark:text-gray-400 flex-shrink-0" />
         )}
       </button>
-      
-      {isOpen && (
-        <div className="px-6 pb-6">
-          <div className="pl-4 border-l-4" style={{ borderColor: color }}>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{answer}</p>
-          </div>
-        </div>
-      )}
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+          >
+            <div className="px-6 pb-6">
+              <div className="pl-4 border-l-4" style={{ borderColor: color }}>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{answer}</p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -80,11 +89,11 @@ export default function FAQSection() {
   return (
     <section className="py-16 md:py-24 bg-gray-50 dark:bg-gray-800" id="faq">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
             FAQs
           </h2>
-        </div>
+        </motion.div>
 
         <div className="max-w-3xl mx-auto space-y-4">
           {faqs.map((faq, index) => (

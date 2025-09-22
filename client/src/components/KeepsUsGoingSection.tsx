@@ -1,20 +1,21 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Users, Zap, Target, Heart } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function KeepsUsGoingSection() {
   return (
     <section className="py-16 md:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
             What Keeps Us Going?
           </h2>
           <div className="w-20 h-1 bg-primary rounded-full mx-auto"></div>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-6">
+          <motion.div className="space-y-6" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut" }}>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Our club helps students to connect, learn, empower and grow. Teamwork, innovative thinking, communication, and more importantly leadership qualities are skills that can make you unstoppable! With that we believe in community-driven learning. Take part and lead to make yourself equipped and create impact.
             </p>
@@ -31,10 +32,10 @@ export default function KeepsUsGoingSection() {
                 Skills Development & Diversity Hub - Our commitment to fostering inclusive growth and innovation.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Illustration */}
-          <div className="flex justify-center lg:justify-end">
+          <motion.div className="flex justify-center lg:justify-end" initial={{ opacity: 0, scale: 0.98 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}>
             <div className="relative">
               <Card className="bg-gradient-to-br from-chart-3/10 to-chart-4/10 border-chart-3/20">
                 <CardContent className="p-8">
@@ -85,7 +86,7 @@ export default function KeepsUsGoingSection() {
               <div className="absolute top-1/2 -left-8 w-3 h-3 bg-chart-2 rounded-full animate-ping"></div>
               <div className="absolute top-1/4 -right-6 w-5 h-5 bg-chart-4 rounded-sm rotate-45 animate-pulse delay-1000"></div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

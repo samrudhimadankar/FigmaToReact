@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 interface StatisticProps {
   value: string;
@@ -93,17 +94,31 @@ export default function StatisticsSection() {
   return (
     <section className="py-16 md:py-20 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+        <motion.div
+          className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={{
+            hidden: { opacity: 0, y: 16 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { staggerChildren: 0.1 }
+            }
+          }}
+        >
           {statistics.map((stat, index) => (
-            <StatisticCard
-              key={stat.label}
-              value={stat.value}
-              label={stat.label}
-              color={stat.color}
-              delay={index * 200}
-            />
+            <motion.div key={stat.label} variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }}>
+              <StatisticCard
+                value={stat.value}
+                label={stat.label}
+                color={stat.color}
+                delay={index * 200}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import { MapPin, Mail, Instagram, Linkedin, Twitter } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
@@ -6,7 +7,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left Section - Logo and Description */}
-          <div className="space-y-6">
+          <motion.div className="space-y-6" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
             <div className="flex items-center space-x-3">
               <div className="w-12 h-12">
                 <svg viewBox="0 0 24 24" className="w-full h-full">
@@ -23,10 +24,10 @@ export default function Footer() {
                 <div className="text-gray-600 dark:text-gray-400">On Campus • Ramdeobaba University</div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Section - Contact Info */}
-          <div className="space-y-8">
+          <motion.div className="space-y-8" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}>
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
                 <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
@@ -83,12 +84,12 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Decorative Bottom Section */}
         <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
-          <div className="bg-gradient-to-r from-blue-50 via-green-50 to-yellow-50 dark:from-blue-900/20 dark:via-green-900/20 dark:to-yellow-900/20 rounded-3xl p-8">
+          <motion.div className="bg-gradient-to-r from-blue-50 via-green-50 to-yellow-50 dark:from-blue-900/20 dark:via-green-900/20 dark:to-yellow-900/20 rounded-3xl p-8" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="w-16 h-16 bg-red-500 rounded-3xl flex items-center justify-center">
                 <span className="text-3xl">🍉</span>
@@ -103,7 +104,7 @@ export default function Footer() {
                 <span className="text-3xl">🟡</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </footer>

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
@@ -6,7 +7,7 @@ export default function HeroSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-8">
+          <motion.div className="space-y-8" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut" }}>
             <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
                 <span className="text-blue-600">Google</span>{" "}
@@ -22,33 +23,33 @@ export default function HeroSection() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-base font-medium rounded-lg"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-base font-medium rounded-lg transition-colors"
                 data-testid="button-join-hero"
               >
                 JOIN US
               </Button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Illustration */}
-          <div className="lg:justify-self-end">
+          <motion.div className="lg:justify-self-end" initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}>
             <div className="relative">
               <div className="bg-gradient-to-br from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20 rounded-3xl p-8 lg:p-12">
                 <div className="grid grid-cols-2 gap-8 items-center">
                   {/* Illustration Elements */}
                   <div className="space-y-6">
                     <div className="flex items-center space-x-3">
-                      <div className="w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center">
+                      <div className="w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center transition-transform duration-300 hover:scale-105">
                         <span className="text-2xl">💡</span>
                       </div>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
+                      <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center transition-transform duration-300 hover:scale-105">
                         <span className="text-2xl">💻</span>
                       </div>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center">
+                      <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center transition-transform duration-300 hover:scale-105">
                         <span className="text-2xl">📱</span>
                       </div>
                     </div>
@@ -56,20 +57,20 @@ export default function HeroSection() {
 
                   {/* Character Illustrations */}
                   <div className="space-y-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-green-400 rounded-full flex items-center justify-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-green-400 rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-105">
                       <span className="text-2xl">👩‍💻</span>
                     </div>
-                    <div className="w-14 h-14 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-full flex items-center justify-center ml-4">
+                    <div className="w-14 h-14 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-full flex items-center justify-center ml-4 transition-transform duration-300 hover:scale-105">
                       <span className="text-xl">👨‍💻</span>
                     </div>
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-105">
                       <span className="text-lg">🧑‍💻</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
