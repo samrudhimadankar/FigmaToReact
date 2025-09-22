@@ -86,7 +86,7 @@ export default function StatisticsSection() {
   const statistics = [
     { value: "03+", label: "Years", color: "#16a34a" }, // Green
     { value: "10+", label: "Events", color: "#dc2626" }, // Red  
-    { value: "1K+", label: "Community Members", color: "#2563eb" }, // Blue
+    { value: "1000+", label: "Community Members", color: "#2563eb" }, // Blue
     { value: "200+", label: "Attendees", color: "#ea580c" }, // Orange
   ];
 
