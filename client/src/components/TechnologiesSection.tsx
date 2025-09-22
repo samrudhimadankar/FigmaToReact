@@ -4,22 +4,21 @@ interface TechnologyCardProps {
   name: string;
   icon: string;
   color: string;
-  description: string;
+  bgColor: string;
 }
 
-function TechnologyCard({ name, icon, color, description }: TechnologyCardProps) {
+function TechnologyCard({ name, icon, color, bgColor }: TechnologyCardProps) {
   return (
-    <Card className="hover-elevate transition-all duration-300 group">
-      <CardContent className="p-6 text-center space-y-4">
+    <Card className="hover:shadow-lg transition-all duration-300 group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+      <CardContent className="p-8 text-center space-y-4">
         <div 
-          className="w-16 h-16 mx-auto rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
-          style={{ backgroundColor: color }}
+          className="w-20 h-20 mx-auto rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
+          style={{ backgroundColor: bgColor }}
         >
-          <span className="text-3xl">{icon}</span>
+          <span className="text-4xl">{icon}</span>
         </div>
         <div>
-          <h3 className="text-lg font-semibold mb-2">{name}</h3>
-          <p className="text-sm text-muted-foreground">{description}</p>
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{name}</h3>
         </div>
       </CardContent>
     </Card>
@@ -32,31 +31,31 @@ export default function TechnologiesSection() {
       name: "Android",
       icon: "🤖",
       color: "#3DDC84",
-      description: "Build amazing mobile experiences with Android development tools and frameworks.",
+      bgColor: "#e8f5e8",
     },
     {
       name: "Flutter",
-      icon: "🎯",
+      icon: "🎯", 
       color: "#02569B",
-      description: "Create beautiful, natively compiled applications for mobile, web, and desktop.",
+      bgColor: "#e3f2fd",
     },
     {
       name: "Cloud",
       icon: "☁️",
-      color: "#4285F4",
-      description: "Scale your applications with Google Cloud Platform's powerful infrastructure.",
+      color: "#4285F4", 
+      bgColor: "#e3f2fd",
     },
   ];
 
   return (
-    <section className="py-16 md:py-24" id="technologies">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 md:py-24 bg-white dark:bg-gray-900" id="technologies">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Technologies
           </h2>
-          <div className="w-20 h-1 bg-primary rounded-full mx-auto mb-6"></div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="w-20 h-1 bg-blue-600 rounded-full mx-auto mb-6"></div>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Domains That Excite Us to Collaborate and Teach!
           </p>
         </div>
@@ -71,21 +70,6 @@ export default function TechnologiesSection() {
               <TechnologyCard {...tech} />
             </div>
           ))}
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <p className="text-muted-foreground mb-6">
-            Ready to dive into these exciting technologies?
-          </p>
-          <div className="space-x-4">
-            <button className="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover-elevate transition-all duration-300">
-              Explore Projects
-            </button>
-            <button className="border border-border px-6 py-3 rounded-lg font-medium hover-elevate transition-all duration-300">
-              Join a Workshop
-            </button>
-          </div>
         </div>
       </div>
     </section>
