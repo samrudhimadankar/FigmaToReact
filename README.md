@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # FigmaToReact - GDG RBU Chapter
 
 A pixel-accurate, responsive replica of the provided design built with React, Vite, Tailwind CSS, and Framer Motion. Includes dark/light mode, smooth animations, and production deployment config for Vercel.
@@ -56,3 +57,6 @@ No environment variables are required for the static site.
 
 ## License
 MIT
+=======
+# GDG-Task
+>>>>>>> c7c1962894484a8cf44684ed106a31893038697f
